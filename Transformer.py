@@ -1,7 +1,4 @@
 """
-Classification: argmax(probability_vector * balance_weights)
-Balance       : w_c = (N / (C * n_c)) ^ alpha  (alpha=0 -> no balance)
-
 Usage:
     python Transformer.py --partition 1
     python Transformer.py --partition 2
