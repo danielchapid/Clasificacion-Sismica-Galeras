@@ -18,8 +18,8 @@ warnings.filterwarnings("ignore")
 # CONFIGURATION
 # ==============================================================================
 # Input directories
-SISMOS_ROOT  = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
-OUTPUT_DIR   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"
+SISMOS_ROOT  = # Dataset access path  
+OUTPUT_DIR   = # Save path
 
 # Sensor parameters
 ESTACION     = "ANGP"
