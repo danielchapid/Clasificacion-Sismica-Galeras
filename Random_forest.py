@@ -59,7 +59,7 @@ def load_context(partition: int):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     ctx_path = os.path.join(
         base_dir, "data_processed", "partitions", 
-        f"Partition_{partition}", "context", "features_context.parquet"
+        f"Partition_{partition}", "context_80", "features_context.parquet"
     )
 
     if not os.path.exists(ctx_path):
@@ -68,7 +68,7 @@ def load_context(partition: int):
 
     df   = pd.read_parquet(ctx_path)
     META = {config.LABEL_COL, "event_id", "event_group", "station_code", "file_name"}
-    feat_cols = [c for c in df.columns if c not in META]
+    feat_cols = [c for c in df.columns if c not in META and pd.api.types.is_numeric_dtype(df[c])]
 
     y = df[config.LABEL_COL].astype(str).values
 
@@ -278,9 +278,10 @@ def main():
     print(f"    1. Review the generated plots")
     print(f"    2. Decide which features to keep in config_extract.py")
     print(f"    3. Re-run extract_features.py with only the important features")
-    print(f"    4. Run evaluar.py with the newly extracted data")
+    print(f"    4. Run Transformer.py with the newly extracted data")
     print(f"  {'='*W}\n")
 
 
 if __name__ == "__main__":
     main()
+
