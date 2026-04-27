@@ -2,8 +2,9 @@ import os
 
 # ======================= CONFIGURATION =======================
 _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Input dataset directory path
-INPUT_ROOT = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
+
+INPUT_ROOT = # Input dataset directory path
+
 # Output directory path for processed partitions
 OUTPUT_PARTITIONS = os.path.join(_BASE_DIR, "data_processed", "partitions")
 
