@@ -1,21 +1,12 @@
 """
-TabPFN v2 Transformer - Context Training + Partition Evaluation
-===============================================================
-For each partition:
-  1. Reads features_context.parquet
-  2. Imputes NaN and computes context means
-  3. Trains TabPFN v2 with the context (fit)
-  4. Evaluates test parquets with argmax + optional balancing
-  5. Saves probability vector TXT, confusion matrix, and metrics CSV
-
 Classification: argmax(probability_vector * balance_weights)
 Balance       : w_c = (N / (C * n_c)) ^ alpha  (alpha=0 -> no balance)
 
 Usage:
-    python evaluar.py --partition 1
-    python evaluar.py --partition 2
-    python evaluar.py --partition 3
-    python evaluar.py --partition 4
+    python Transformer.py --partition 1
+    python Transformer.py --partition 2
+    python Transformer.py --partition 3
+    python Transformer.py --partition 4
 """
 
 import os
@@ -33,9 +24,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tabpfn import TabPFNClassifier
-
 import config_Transformer as config
-
 warnings.filterwarnings("ignore")
 
 
