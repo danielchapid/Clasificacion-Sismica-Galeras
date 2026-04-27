@@ -12,9 +12,9 @@ from obspy import read as mseed_read
 # ==============================================================================
 
 # Input dataset directory
-SISMOS_DIR   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos" 
+SISMOS_DIR   = # Dataset access path
 # Output directory for generated images
-OUTPUT_DIR   = r"C:\Users\Daniel\OneDrive\Documentos\Tesis_Galeras_Final\eda_imagenes"
+OUTPUT_DIR   = # Figure saving path
 MD_OUTPUT    = os.path.join(OUTPUT_DIR, "metadata_eda.md")
 
 STATION      = "ANGP"
