@@ -19,11 +19,11 @@ from scipy.signal import welch
 # ==============================================================================
 
 # Input directories
-SISMOS_ROOT   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
-AUGMENTED_DIR = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"
+SISMOS_ROOT   = # Dataset access path
+AUGMENTED_DIR = # Path to augmented data
 
 # Output directory for generated figures
-OUTPUT_FIGS   = r"C:\Users\Daniel\OneDrive\Documentos\Tesis_Galeras_Final\Data augmentation\figuras_v5"
+OUTPUT_FIGS   = # Figure saving path
 
 ESTACION = "ANGP"
 CANAL    = "ELZ"
