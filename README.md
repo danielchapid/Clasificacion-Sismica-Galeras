@@ -1,10 +1,10 @@
-# Clasificacion de Sismicidad del Volcan Galeras
+# Clasificación de Sismicidad del volcán Galeras
 
-Codigos para la clasificacion de sismicidad (VT, LP, TRE, TOR) del Volcan Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado como parte del proyecto de grado en la Universidad de Narino.
+Codigos para la clasificación de sismicidad (VT, LP, TRE, TOR) del volcán Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado como parte del proyecto de grado en la Universidad de Narino.
 
 ---
 
-## 1. Instalacion y Requisitos Previos
+## 1. Instalación y Requisitos Previos
 
 ⚠️ **Importante - Version de Python:** Este proyecto fue desarrollado y probado exhaustivamente en **Python 3.10.9**. Se requiere utilizar la rama **3.10.x** para evitar problemas de compatibilidad y dependencias rotas con modelos avanzados como TabPFN.
 
@@ -14,7 +14,7 @@ Para ejecutar este proyecto de forma segura, utiliza un entorno virtual:
    ```
    python -3.10 -m venv nombre_del_entorno
    ```
-   *Ahora activa el entorno virtual para trabajar y correr los codigos.*
+   *Activa el entorno virtual para trabajar y correr los codigos.*
    
 3. **Instalar las dependencias exactas:**
    Con el entorno activado, ejecuta el siguiente comando para instalar las versiones precisas requeridas:
@@ -25,16 +25,16 @@ Para ejecutar este proyecto de forma segura, utiliza un entorno virtual:
 
 ---
 
-## 2. 🚀 Codigos Principales y Pipeline del Proyecto
+## 2. Codigos Principales y Pipeline del Proyecto
 
-El repositorio esta disenado para ejecutarse de manera secuencial. A continuacion se describen los scripts principales que conforman el nucleo de la extraccion y modelado.
+El repositorio esta disenado para ejecutarse de manera secuencial. A continuacion se describen los scripts principales que conforman el nucleo de la extracción y modelado.
 
 *(Nota: De este bloque principal, el unico codigo que requiere configuracion manual de rutas de datos es `config_extract.py`).*
 
 :   **`config_extract.py`**: Archivo maestro que centraliza los hiperparametros de procesamiento: frecuencia de muestreo (100Hz), parametros de los filtros (0.7Hz highpass), tamano de ventanas, umbrales de coda, fracciones de particion (80% contexto), y la lista de caracteristicas estadisticas y espectrales seleccionadas.
-*   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la senal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
-*   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`). Modificar el valor de `alpha` permite reproducir el Experimento 4 de la investigacion.
-  *(Nota: Modificar el valor de `alpha` a los avlores 0.5 y 1, permite reproducir el Experimento 4 de la investigacion).*
+*   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la señal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
+*   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).
+  *(Nota: Modificar el valor de `alpha` a los avlores 0.5 y 1, permite reproducir el experimento 4 de la investigacion).*
 
 *   **Transformer.py`**: Codigo central de la investigacion. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de contexto a la memoria en tiempo de ejecucion para inferir sobre el conjunto de prueba.
     *   **Ejecucion:** Se debe evaluar particion por particion usando el argumento `--partition`.
@@ -64,7 +64,7 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
 
 ### D. Aumento de Datos (Clase TOR)
-*   **`data_augmentation.py`**: Se utiliza para realizar un anailisis exploratorio del conjunto de datos, generando graficas como su forma de onda, espectro y espectrograma.
+*   **`data_augmentation.py`**: Script para generar datos aumentados del tipo de sismo TOR.
     *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
     *   `OUTPUT_DIR = # Save path`
         > ⚠️ **Nota importante sobre el Output:** El guardado debe estar ubicado estrictamente en la misma ruta base de tu dataset original, dentro de la subcarpeta de la clase minoritaria a la que se le hizo el aumento. 
