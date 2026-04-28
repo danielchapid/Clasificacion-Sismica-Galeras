@@ -12,7 +12,7 @@ Para ejecutar este proyecto de forma segura, utiliza un entorno virtual:
 
 1. **Crear y activar el entorno virtual (forzando el uso de Python 3.10 en Windows):**
    ```powershell
-   py -3.10 -m venv venv_galeras
+   python -3.10 -m venv venv_galeras
    .\venv_galeras\Scripts\activate
    ```
 
