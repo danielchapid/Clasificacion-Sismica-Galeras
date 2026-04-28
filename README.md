@@ -1,69 +1,76 @@
-# Clasificacion-Sismica-Galeras
+# Clasificación de Sismicidad del Volcán Galeras
 
-Código para la clasificación de sismicidad (VT, LP, TRE, TOR) del Volcán Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado para trabajo de grado en la Universidad de Nariño.
+Código para la clasificación de sismicidad (VT, LP, TRE, TOR) del Volcán Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado como parte del proyecto de grado en la Universidad de Nariño.
 
-## Instalación y Requerimientos
+---
 
-Para ejecutar este proyecto, se recomienda encarecidamente utilizar un entorno virtual (venv) para evitar conflictos de versiones y librerías innecesarias.
+## ⚙️ Instalación y Requisitos Previos
 
-1. **Crear y activar el entorno virtual:**
-2. **Instalar las dependencias exactas:**
-   Con el archivo `requirements.txt`, simplemente corre:
+⚠️ **Importante - Versión de Python:** Este proyecto fue desarrollado y probado exhaustivamente en **Python 3.10**. Se recomienda estrictamente utilizar esta versión (o específicamente 3.10.9) para evitar problemas de compatibilidad y dependencias rotas con modelos avanzados como TabPFN.
+
+Para ejecutar este proyecto de forma segura, utiliza un entorno virtual:
+
+1. **Crear y activar el entorno virtual (usando Python 3.10):**
    ```powershell
-   pip install -r requirements.txt
-   ```
-   *(Si lo haces manualmente, asegúrate de instalar las librerías principales: `numpy`, `pandas`, `scipy`, `scikit-learn`, `obspy`, `librosa`, `tabpfn`, `matplotlib`, `seaborn`, `tqdm`, `pyarrow`, `fastparquet`).* 
+   python -m venv venv_galeras
+   venv_galeras\Scripts\activate
+Instalar las dependencias exactas:
+Con el entorno activado, ejecuta el siguiente comando para instalar las versiones precisas requeridas:
 
----
+PowerShell
+pip install -r requirements.txt
+(Nota: El archivo instala automáticamente los paquetes críticos como numpy, pandas, scipy, scikit-learn, obspy, librosa, tabpfn==6.4.1, matplotlib, pyarrow y fastparquet).
 
-## Configuración de Rutas (Paths)
+📂 Configuración de Rutas Locales (Paths)
+Antes de ejecutar los códigos, es obligatorio configurar las rutas absolutas donde están almacenados tus archivos .mseed locales y dónde deseas guardar los resultados. Debes abrir los siguientes scripts y modificar las variables en la cabecera.
 
-Varios scripts requieren que configures manualmente las rutas (paths) absolutas para leer los archivos sísmicos locales (`miniSEED`) y guardar los resultados. A continuación se detalla qué debes modificar en la cabecera de cada script antes de ejecutarlo.
+Ejemplo de formato de ruta en Windows: r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
 
-**Ejemplo general de ruta en Windows:** `r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"`
+Para Extracción y Visualización:
+config_extract.py:
 
-### 1. `config_extract.py`
-Define la carpeta donde se encuentra el conjunto de datos.
-*   `INPUT_ROOT = # Input dataset directory path` (Ejemplo: `r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"`)
+INPUT_ROOT = # Ruta a la carpeta principal de tu dataset
 
-### 2. `data_augmentation.py`
-Se encarga de aumentar los datos de la clase minoritaria (TOR).
-*   `SISMOS_ROOT = # Dataset access path` (Ejemplo: `r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"`)
-*   `OUTPUT_DIR = # Save path`
-    > **Nota importante sobre el Output:** La ruta de guardado debe estar ubicada en la misma ruta base de tu dataset original, dentro de la clase TOR, la cual fue a la que se le aumento los datos. 
-    > **Ejemplo correcto:** Si tu dataset está en `Sismos`, la salida debe ser `r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"`.
+dataset_viewer.py (Análisis Exploratorio EDA):
 
-### 3. `dataset_viewer.py`
-Genera visualizaciones exploratorias (EDA) de los eventos sísmicos originales.
-*   `SISMOS_DIR = # Input dataset directory` (Ruta original de los datos). ejemplo: r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
-*   `OUTPUT_DIR = # Output directory for generated images` (Carpeta donde se guardarán las figuras resultantes).
+SISMOS_DIR = # Ruta original de los datos
 
-### 4. `viewer_augmentation.py`
-Visualiza comparativamente las señales originales vs las señales sintéticas aumentadas.
-*   `SISMOS_ROOT = # Dataset access path` (Ruta al dataset original). ejemplo: r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
-*   `AUGMENTED_DIR = # Path to augmented data` (Ruta a la subcarpeta de tornillos generados, ej: `r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"`).
-*   `OUTPUT_FIGS = # Output directory for generated figures` (Directorio de guardado de la comparación).
+OUTPUT_DIR = # Carpeta destino para las imágenes generadas
 
----
+Para Aumento de Datos (Clase TOR):
+data_augmentation.py:
 
-## Descripción de los Códigos Principales
+SISMOS_ROOT = # Ruta original de los datos
 
-A continuación se describe la utilidad y el modo de ejecución de los códigos base del pipeline:
+OUTPUT_DIR = # Ruta destino del aumento
+(⚠️ Atención: La salida debe estar dentro de la misma ruta base original, en la carpeta específica de la clase minoritaria. Ej: r"...\Sismos\TOR").
 
-### Extracción de Características
-*   **`config_extract.py`**: Archivo de configuración global que define frecuencias de muestreo (100Hz), parámetros de los filtros (0.7Hz highpass), variables de ventanas, umbrales de coda, fracciones para el dataset (80% contexto), y la lista de características seleccionadas a calcular.
+viewer_augmentation.py:
 
-*   **`extract_features.py`**: Recorre recursivamente las carpetas del dataset para leer archivos `miniSEED`. Limpia la señal y extrae características temporales, frecuenciales y MFCC. Finalmente, divide todo el conjunto de datos en particiones (contexto y prueba) y guarda los resultados en archivos `.parquet`.
+SISMOS_ROOT = # Ruta original de los datos
 
-### Modelado y Evaluación (Transformer)
-*   **`config_Transformer.py`**: Archivo de configuración específico para TabPFN. Define la cantidad de estimadores, semilla de reproducibilidad, tamaño máximo de filas en memoria, y factor de peso de clases (`alpha`), al modificar este valor de alpha, se le dará reproducibilidad al Experimento 4 de la investigación.
+AUGMENTED_DIR = # Ruta a la subcarpeta de tornillos sintéticos
 
-*   **`Transformer.py`**: Es el código central que ejecuta la clasificación. Emplea el aprendizaje en contexto de TabPFN, pasándole el set de entrenamiento (80%) a la memoria en tiempo de ejecución e infiriendo sobre el conjunto de prueba.
-    *   **Cómo ejecutarlo:** Se debe evaluar **partición por partición** usando el argumento `--partition k`, donde `k` es un valor del 1 al 4.
-    *   **Ejemplo en terminal:**
-        ```powershell
-        python Transformer.py --partition 1
-        ```
+OUTPUT_FIGS = # Directorio destino para las figuras comparativas
 
-### Importancia de Características
-*   **`Random_forest.py`** (Originalmente `feature_importance.py`): Entrena iterativamente un modelo basado en árboles en cada partición para validar cuáles características son las que más aportan a las decisiones de clasificación. *Este código es completamente dinámico y no requiere configurar rutas de entrada ni de salida*; crea la ruta basándose en el directorio actual.
+🚀 Pipeline del Proyecto y Códigos Principales
+El proyecto está diseñado para ejecutarse de manera secuencial. A continuación se describe la función de los scripts nucleares de procesamiento y modelado:
+
+1. Extracción de Características
+config_extract.py: Archivo maestro que centraliza los hiperparámetros de procesamiento: frecuencia de muestreo (100Hz), parámetros de los filtros (0.7Hz highpass), tamaño de ventanas, umbrales de coda, fracciones de partición (80% contexto), y la lista de características estadísticas y espectrales seleccionadas.
+
+extract_features.py: Script principal de procesamiento. Recorre el dataset leyendo los archivos miniSEED, limpia la señal, extrae las características (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato .parquet.
+
+2. Importancia de Características (Baseline)
+Random_forest.py: Entrena iterativamente un modelo basado en árboles para cada partición, estableciendo una métrica de línea base (baseline) y validando el aporte individual de cada característica a la clasificación. Este script es dinámico y genera automáticamente sus rutas de salida basadas en el directorio de ejecución actual.
+
+3. Modelado y Clasificación Avanzada
+config_Transformer.py: Archivo de configuración de hiperparámetros para TabPFN. Define la semilla de reproducibilidad, tamaño máximo de memoria, y el factor de peso de clases (alpha). Nota: Modificar el valor de alpha permite reproducir el Experimento 4 de la investigación.
+
+Transformer.py: Código central de la investigación. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de entrenamiento a la memoria en tiempo de ejecución para inferir sobre el conjunto de prueba.
+
+Ejecución del Modelo:
+El clasificador debe evaluarse partición por partición utilizando el argumento --partition k (donde k va de 1 a 4). Ejemplo en terminal:
+
+PowerShell
+python Transformer.py --partition 1
