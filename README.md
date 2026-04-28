@@ -1,6 +1,6 @@
 # Clasificación de Sismicidad del Volcán Galeras
 
-Código para la clasificación de sismicidad (VT, LP, TRE, TOR) del Volcán Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado como parte del proyecto de grado en la Universidad de Nariño.
+Códigos para la clasificación de sismicidad (VT, LP, TRE, TOR) del Volcán Galeras utilizando aprendizaje en contexto con TabPFN. Desarrollado como parte del proyecto de grado en la Universidad de Nariño.
 
 ---
 
