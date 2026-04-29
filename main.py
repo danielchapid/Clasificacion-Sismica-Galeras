@@ -1,9 +1,3 @@
-"""
-Main Menu — Thesis Galeras
--------------------------------
-Interactive launcher for all project scripts.
-Run from the project root directory.
-"""
 import subprocess
 import sys
 import os
