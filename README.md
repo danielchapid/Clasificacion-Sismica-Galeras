@@ -49,7 +49,7 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 **Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`
 
 ### A. Analisis y Visualizacion Exploratoria
-*   **`dataset_viewer.py`**
+*   **`dataset_viewer.py`**: Script para realizar el análisis exploratorio de datos (EDA)
     *   `SISMOS_DIR = # Dataset access path` (Ruta original de los datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
 
