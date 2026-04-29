@@ -1,10 +1,3 @@
-"""
-Data Augmentation for Tornillo Signals
---------------------------------------
-Synthesizes augmented tornillo signals by combining real tornillo events
-with scaled noise preambles (from LP, TR, VA classes). Ensures a balanced
-distribution across different alpha (intensity) bands.
-"""
 import os
 import re
 import numpy as np
