@@ -12,8 +12,7 @@ from scipy.signal import welch
 # ==============================================================================
 
 # Input directories
-SISMOS_ROOT   = # Dataset access path
-AUGMENTED_DIR = # Path to augmented data
+SISMOS_ROOT   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
 
 # Output directory for generated figures
 OUTPUT_FIGS   = r"C:\Users\Daniel\OneDrive\Documentos\Tesis_Galeras_Final\Data augmentation\figuras_v5"
@@ -89,10 +88,11 @@ def index_augmented() -> dict:
     groups  = {}
     # 3 digits for alpha (resolution 0.001)
     pattern = re.compile(r'^(.+)_a(\d{3})$')
-    for yr in sorted(os.listdir(AUGMENTED_DIR)):
+    aug_dir = os.path.join(SISMOS_ROOT, "TOR")
+    for yr in sorted(os.listdir(aug_dir)):
         if not yr.endswith("_Aug"):
             continue
-        yr_path = os.path.join(AUGMENTED_DIR, yr)
+        yr_path = os.path.join(aug_dir, yr)
         if not os.path.isdir(yr_path):
             continue
         for folder in sorted(os.listdir(yr_path)):
@@ -244,13 +244,14 @@ def main():
     print(f"      {len(originals)} found")
 
     print("\n  [2] Indexing augmented...")
-    if not os.path.isdir(AUGMENTED_DIR):
+    aug_dir = os.path.join(SISMOS_ROOT, "TOR")
+    if not os.path.isdir(aug_dir):
         print(f"[ERROR] Folder does not exist. Did you run data_augmentation_tornillo.py?")
-        print(f"  {AUGMENTED_DIR}")
+        print(f"  {aug_dir}")
         return
     aug_groups = index_augmented()
     if not aug_groups:
-        print(f"[ERROR] No augmented files found in:\n  {AUGMENTED_DIR}")
+        print(f"[ERROR] No augmented files found in:\n  {aug_dir}")
         return
     total_aug = sum(len(v) for v in aug_groups.values())
     print(f"      {total_aug} augmented  |  {len(aug_groups)} alpha values")
