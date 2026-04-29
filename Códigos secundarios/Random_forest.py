@@ -1,9 +1,3 @@
-"""
-Feature Ranking with Random Forest
-----------------------------------
-Trains a RandomForest on each partition's context data to calculate and average
-feature importances. Generates bar plots for the ranked features.
-"""
 import os
 import sys
 sys.dont_write_bytecode = True
