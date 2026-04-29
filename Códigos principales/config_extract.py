@@ -5,7 +5,7 @@ import os
 _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Input dataset directory path
-INPUT_ROOT = # Input dataset directory path
+INPUT_ROOT = # Dataset access path
 
 # Output directory path for processed partitions
 OUTPUT_PARTITIONS = os.path.join(_BASE_DIR, "data_processed", "partitions")
