@@ -74,3 +74,20 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
     *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
     *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR\"`.
     *   `OUTPUT_FIGS = # Figure saving path` (Directorio destino para las figuras comparativas).
+
+---
+
+## 4. Ejecución Simplificada (Menú Principal)
+
+Para facilitar la ejecución de todos los códigos mencionados anteriormente y evitar posibles problemas de rutas, se ha creado un script principal llamado **`main.py`** en la raíz del proyecto. Este archivo funciona como un lanzador interactivo.
+
+Aunque puedes correr cada script de manera individual, **se recomienda usar el menú principal** para ejecutar cualquier código de las carpetas principales o secundarias de forma segura y centralizada.
+
+**Para ejecutarlo:**
+Simplemente abre una terminal en la raíz del proyecto y ejecuta:
+
+```
+python main.py
+```
+
+Esto abrirá un menú interactivo en español donde podrás seleccionar la carpeta y el script específico que deseas correr, sin necesidad de navegar manualmente entre los directorios en tu consola.
