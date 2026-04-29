@@ -12,7 +12,7 @@ from scipy.signal import welch
 # ==============================================================================
 
 # Input directories
-SISMOS_ROOT   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
+SISMOS_ROOT   = # Dataset access path
 AUGMENTED_DIR = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"
 
 # Output directory for generated figures
