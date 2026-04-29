@@ -26,7 +26,7 @@ FOLDERS = {
         "scripts": [
             ("dataset_viewer.py",        "Análisis exploratorio de datos (EDA)"),
             ("Random_forest.py",         "Ranking de importancia de características (Random Forest)"),
-            ("data_augmentation.py",     "Aumentación de datos de Tornillo"),
+            ("data_augmentation.py",     "Aumento de datos de Tornillo"),
             ("viewer_augmentation.py",   "Visualización de señales aumentadas"),
         ],
     },
