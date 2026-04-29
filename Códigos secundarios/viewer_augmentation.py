@@ -1,10 +1,3 @@
-"""
-Visual Comparison: Original vs Augmented Tornillo
--------------------------------------------------
-Generates multi-panel figures comparing the synthetic (augmented) waveform, 
-the original waveform, and their overlaid Power Spectrum Density (PSD).
-Groups the output by the alpha (intensity) range.
-"""
 import os
 import re
 import numpy as np
