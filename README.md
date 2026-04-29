@@ -32,7 +32,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 *(Nota: De este bloque principal, el unico codigo que requiere configuracion manual de rutas de datos es `config_extract.py`).*
 
 *   **`config_extract.py`**: Archivo maestro que centraliza los hiperparametros de procesamiento: frecuencia de muestreo (100Hz), parametros de los filtros (0.7Hz highpass), tamano de ventanas, umbrales de coda, fracciones de particion (80% contexto), y la lista de caracteristicas estadisticas y espectrales seleccionadas.
-     * `INPUT_ROOT = # Input dataset directory path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
+     * `INPUT_ROOT = # Input dataset directory path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset"`).
   
 *   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la señal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
 *   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).   
@@ -46,22 +46,18 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 
 Los codigos secundarios son para visualizacion, validacion y aumento de datos. Antes de ejecutar los scripts, es obligatorio configurar las rutas absolutas de tus carpetas locales en la cabecera de los siguientes scripts.
 
-**Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`
+**Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\SismosDataset"`
 
-### A. Extraccion Principal
-*   **`config_extract.py`**
-    *   `INPUT_ROOT = # Input dataset directory path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
-
-### B. Validacion e Importancia
+### A. Validacion e Importancia
 *   **`Random_forest.py`**: Entrena iterativamente un modelo basado en arboles para cada particion, estableciendo una metrica de linea base (baseline) y validando el aporte individual de cada caracteristica a la clasificacion. *El script es completamente dinamico y genera automaticamente sus rutas de salida basadas en el directorio de ejecucion actual, por lo que no necesita configurar rutas.*
 
 
-### C. Analisis y Visualizacion Exploratoria
+### B. Analisis y Visualizacion Exploratoria
 *   **`dataset_viewer.py`**
     *   `SISMOS_DIR = # Dataset access path` (Ruta original de los datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
 
-### D. Aumento de Datos (Clase TOR)
+### C. Aumento de Datos (Clase TOR)
 *   **`data_augmentation.py`**: Script para generar datos aumentados del tipo de sismo TOR.
     *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
     *   `OUTPUT_DIR = # Save path`
