@@ -35,7 +35,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 *   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la señal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
 *   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).
 *   
-  *(Nota: Modificar el valor de `alpha` a los avlores 0.5 y 1, permite reproducir el experimento 4 de la investigacion).*
+  (Nota: Modificar el valor de `alpha` a los avlores 0.5 y 1, permite reproducir el experimento 4 de la investigacion).*
 
 *   **Transformer.py`**: Codigo central de la investigacion. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de contexto a la memoria en tiempo de ejecucion para inferir sobre el conjunto de prueba.
     *   **Ejecucion:** Se debe evaluar particion por particion usando el argumento `--partition`.
