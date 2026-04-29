@@ -39,6 +39,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
   *(Nota: Modificar el valor de `alpha` a los valores 0.5 y 1, permite reproducir el experimento 4 de la investigación).*
 
 *   **`Transformer.py`**: Codigo central de la investigacion. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de contexto a la memoria en tiempo de ejecucion para inferir sobre el conjunto de prueba.
+  
    *(Nota: Si se requiere ejectura el Script de forma individual puede hacerlo de la forma `Transformer.py --partition k`, siendo k=1, 2, 3, 4. ).*
 
 ---
