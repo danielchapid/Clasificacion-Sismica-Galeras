@@ -32,7 +32,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 *(Nota: De este bloque principal, el unico codigo que requiere configuracion manual de rutas de datos es `config_extract.py`).*
 
 *   **`config_extract.py`**: Archivo maestro que centraliza los hiperparametros de procesamiento: frecuencia de muestreo (100Hz), parametros de los filtros (0.7Hz highpass), tamano de ventanas, umbrales de coda, fracciones de particion (80% contexto), y la lista de caracteristicas estadisticas y espectrales seleccionadas.
-     * `INPUT_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
+     * `INPUT_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset"`).
   
 *   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la señal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
 *   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).   
@@ -48,7 +48,7 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 
 ### A. Analisis y Visualizacion Exploratoria
 *   **`dataset_viewer.py`**: Script para realizar el análisis exploratorio de datos (EDA)
-    *   `SISMOS_DIR = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
+    *   `SISMOS_DIR = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
 
 
@@ -57,13 +57,13 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 
 ### C. Aumento de Datos (Clase TOR)
 *   **`data_augmentation.py`**: Script para generar datos aumentados del tipo de sismo TOR.
-    *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
+    *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Save path`
         > ⚠️ **Nota importante sobre el Output:** El guardado debe estar ubicado estrictamente en la misma ruta base de tu dataset original, dentro de la subcarpeta de la clase minoritaria a la que se le hizo el aumento. 
-        > **Ejemplo correcto:** Si tu dataset esta en la carpeta `Dataset`, la salida debe ser `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
+        > **Ejemplo correcto:** Si tu dataset esta en la carpeta `Dataset`, la salida debe ser `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset\TOR"`.
 
 *   **`viewer_augmentation.py`**: Se utiliza para comparar la señal original del sismo TOR con su variante aumentada.
-    *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
+    *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Nombre\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_FIGS = # Figure saving path` (Directorio destino para las figuras comparativas).
 
 ---
