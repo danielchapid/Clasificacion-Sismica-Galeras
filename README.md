@@ -46,7 +46,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 
 Los codigos secundarios son para visualizacion, validacion y aumento de datos. Antes de ejecutar los scripts, es obligatorio configurar las rutas absolutas de tus carpetas locales en la cabecera de los siguientes scripts.
 
-**Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\SismosDataset"`
+**Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`
 
 ### A. Validacion e Importancia
 *   **`Random_forest.py`**: Entrena iterativamente un modelo basado en arboles para cada particion, estableciendo una metrica de linea base (baseline) y validando el aporte individual de cada caracteristica a la clasificacion. *El script es completamente dinamico y genera automaticamente sus rutas de salida basadas en el directorio de ejecucion actual, por lo que no necesita configurar rutas.*
@@ -54,19 +54,19 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 
 ### B. Analisis y Visualizacion Exploratoria
 *   **`dataset_viewer.py`**
-    *   `SISMOS_DIR = # Dataset access path` (Ruta original de los datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
+    *   `SISMOS_DIR = # Dataset access path` (Ruta original de los datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
 
 ### C. Aumento de Datos (Clase TOR)
 *   **`data_augmentation.py`**: Script para generar datos aumentados del tipo de sismo TOR.
-    *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
+    *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Save path`
         > ⚠️ **Nota importante sobre el Output:** El guardado debe estar ubicado estrictamente en la misma ruta base de tu dataset original, dentro de la subcarpeta de la clase minoritaria a la que se le hizo el aumento. 
-        > **Ejemplo correcto:** Si tu dataset esta en `Sismos`, la salida debe ser `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR\"`.
+        > **Ejemplo correcto:** Si tu dataset esta en `Sismos`, la salida debe ser `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
 
 *   **`viewer_augmentation.py`**: Se utiliza para comparar la señal original del sismo TOR con su variante aumentada.
-    *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
-    *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR\"`.
+    *   `SISMOS_ROOT = # Dataset access path` (Ruta del conjunto de datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
+    *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\DatasetTOR"`.
     *   `OUTPUT_FIGS = # Figure saving path` (Directorio destino para las figuras comparativas).
 
 ---
