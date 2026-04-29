@@ -15,7 +15,7 @@ from scipy.signal import welch
 SISMOS_ROOT   = # Dataset access path
 
 # Output directory for generated figures
-OUTPUT_FIGS   = r"C:\Users\Daniel\OneDrive\Documentos\Tesis_Galeras_Final\Data augmentation\figuras_v5"
+OUTPUT_FIGS   = # Figure saving path
 
 ESTACION = "ANGP"
 CANAL    = "ELZ"
