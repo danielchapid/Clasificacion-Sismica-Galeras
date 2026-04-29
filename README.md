@@ -36,11 +36,7 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 *   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).   
   *(Nota: Modificar el valor de `alpha` a los valores 0.5 y 1, permite reproducir el experimento 4 de la investigación).*
 
-*   **Transformer.py`**: Codigo central de la investigacion. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de contexto a la memoria en tiempo de ejecucion para inferir sobre el conjunto de prueba.
-    *   **Ejecucion:** Se debe evaluar particion por particion usando el argumento `--partition`.
-        ```
-        pyhon Transformer.py --partition k, k=1, 2, 3, 4.
-        ```
+*   **`Transformer.py`**: Codigo central de la investigacion. Emplea el aprendizaje en contexto de la arquitectura TabPFN, cargando el set de contexto a la memoria en tiempo de ejecucion para inferir sobre el conjunto de prueba.
 
 ---
 
