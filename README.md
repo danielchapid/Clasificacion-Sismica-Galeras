@@ -64,7 +64,6 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 
 *   **`viewer_augmentation.py`**: Se utiliza para comparar la señal original del sismo TOR con su variante aumentada.
     *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
-    *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
     *   `OUTPUT_FIGS = # Figure saving path` (Directorio destino para las figuras comparativas).
 
 ---
