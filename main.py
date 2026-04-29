@@ -1,16 +1,10 @@
-"""
-Menú Principal — Tesis Galeras
--------------------------------
-Lanzador interactivo para todos los scripts del proyecto.
-Ejecutar desde la raíz del proyecto.
-"""
 import subprocess
 import sys
 import os
 
 
 # ==============================================================================
-# RUTAS
+# PATHS
 # ==============================================================================
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -40,7 +34,7 @@ FOLDERS = {
 
 
 # ==============================================================================
-# AYUDAS DE VISUALIZACIÓN
+# DISPLAY HELPERS
 # ==============================================================================
 
 W = 58
@@ -61,7 +55,7 @@ def pause():
 
 
 # ==============================================================================
-# MENÚ
+# MENU
 # ==============================================================================
 
 def show_main_menu():
@@ -88,7 +82,7 @@ def show_scripts_menu(folder_key: str):
 
 
 def run_script(folder_key: str, script_index: int):
-    """Lanza el script seleccionado como subproceso."""
+    """Launches the selected script as a subprocess."""
     folder  = FOLDERS[folder_key]
     script  = folder["scripts"][script_index][0]
     cwd     = folder["path"]
@@ -99,7 +93,7 @@ def run_script(folder_key: str, script_index: int):
         pause()
         return
 
-    # Para Transformer.py, preguntar qué partición evaluar
+    # For Transformer.py, ask which partition to evaluate
     extra_args = []
     if script == "Transformer.py":
         print(f"\n  Transformer.py requiere un número de partición.")
@@ -129,7 +123,7 @@ def run_script(folder_key: str, script_index: int):
 
 
 # ==============================================================================
-# BUCLE PRINCIPAL
+# MAIN LOOP
 # ==============================================================================
 
 def main():
@@ -152,8 +146,9 @@ def main():
             n_scripts = len(FOLDERS[choice]["scripts"])
             if script_choice.isdigit() and 1 <= int(script_choice) <= n_scripts:
                 run_script(choice, int(script_choice) - 1)
-            # entrada inválida → volver a mostrar el menú de scripts
+            # invalid input -> re-show the scripts menu
 
 
 if __name__ == "__main__":
     main()
+
