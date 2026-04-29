@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 # CONFIGURATION
 # ==============================================================================
 # Input directories
-SISMOS_ROOT  = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos"
+SISMOS_ROOT  = # Dataset access path
 OUTPUT_DIR   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"
 
 # Sensor parameters
