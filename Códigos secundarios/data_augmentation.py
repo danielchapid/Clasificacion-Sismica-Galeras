@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 # ==============================================================================
 # Input directories
 SISMOS_ROOT  = # Dataset access path
-OUTPUT_DIR   = r"C:\Users\Daniel\OneDrive\Escritorio\Sismos\TOR"
+OUTPUT_DIR   = # Save path
 
 # Sensor parameters
 ESTACION     = "ANGP"
