@@ -31,7 +31,9 @@ El repositorio esta disenado para ejecutarse de manera secuencial. A continuacio
 
 *(Nota: De este bloque principal, el unico codigo que requiere configuracion manual de rutas de datos es `config_extract.py`).*
 
-:   **`config_extract.py`**: Archivo maestro que centraliza los hiperparametros de procesamiento: frecuencia de muestreo (100Hz), parametros de los filtros (0.7Hz highpass), tamano de ventanas, umbrales de coda, fracciones de particion (80% contexto), y la lista de caracteristicas estadisticas y espectrales seleccionadas.
+*   **`config_extract.py`**: Archivo maestro que centraliza los hiperparametros de procesamiento: frecuencia de muestreo (100Hz), parametros de los filtros (0.7Hz highpass), tamano de ventanas, umbrales de coda, fracciones de particion (80% contexto), y la lista de caracteristicas estadisticas y espectrales seleccionadas.
+     * `INPUT_ROOT = # Input dataset directory path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Sismos\"`).
+  
 *   **`extract_features.py`**: Script principal de procesamiento. Recorre el dataset leyendo los archivos `miniSEED`, limpia la señal, extrae las caracteristicas (temporales, frecuenciales, MFCC), divide el conjunto en particiones estratificadas y guarda los DataFrames resultantes en formato `.parquet`.
 *   **`config_Transformer.py`**: Archivo de configuracion de hiperparametros para TabPFN. Define la semilla de reproducibilidad, tamano maximo de memoria, y el factor de peso de clases (`alpha`).   
   *(Nota: Modificar el valor de `alpha` a los valores 0.5 y 1, permite reproducir el experimento 4 de la investigación).*
