@@ -1,14 +1,3 @@
-"""
-Classification: argmax(probability_vector * balance_weights)
-Balance       : w_c = (N / (C * n_c)) ^ alpha  (alpha=0 -> no balance)
-
-Usage:
-    python evaluar.py --partition 1
-    python evaluar.py --partition 2
-    python evaluar.py --partition 3
-    python evaluar.py --partition 4
-"""
-
 import os
 import sys
 import argparse
