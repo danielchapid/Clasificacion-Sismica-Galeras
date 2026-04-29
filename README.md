@@ -62,16 +62,16 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
     *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Save path`
         > ⚠️ **Nota importante sobre el Output:** El guardado debe estar ubicado estrictamente en la misma ruta base de tu dataset original, dentro de la subcarpeta de la clase minoritaria a la que se le hizo el aumento. 
-        > **Ejemplo correcto:** Si tu dataset esta en `Sismos`, la salida debe ser `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
+        > **Ejemplo correcto:** Si tu dataset esta en la carpeta `Dataset`, la salida debe ser `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
 
 *   **`viewer_augmentation.py`**: Se utiliza para comparar la señal original del sismo TOR con su variante aumentada.
     *   `SISMOS_ROOT = # Dataset access path` (Ruta a la carpeta del dataset. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
-    *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\DatasetTOR"`.
+    *   `AUGMENTED_DIR = # Path to augmented data` (Ruta especifica a la subcarpeta donde se encuentran los tornillos aumentados. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset\TOR"`.
     *   `OUTPUT_FIGS = # Figure saving path` (Directorio destino para las figuras comparativas).
 
 ---
 
-## 4. Ejecución Simplificada (Menú Principal)
+## 4. Interfaz de usuario (Menú Principal)
 
 Para facilitar la ejecución de todos los códigos mencionados anteriormente y evitar posibles problemas de rutas, se ha creado un script principal llamado **`main.py`** en la raíz del proyecto. Este archivo funciona como un lanzador interactivo.
 
@@ -84,4 +84,4 @@ Simplemente abre una terminal en la raíz del proyecto y ejecuta:
 python main.py
 ```
 
-Esto abrirá un menú interactivo en español donde podrás seleccionar la carpeta y el script específico que deseas correr, sin necesidad de navegar manualmente entre los directorios en tu consola.
+Esto abrirá un menú interactivo donde podrás seleccionar la carpeta y el script específico que deseas correr, sin necesidad de navegar manualmente entre los directorios en tu consola.
