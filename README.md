@@ -48,14 +48,14 @@ Los codigos secundarios son para visualizacion, validacion y aumento de datos. A
 
 **Ejemplo general de ruta del conjunto de datos (dataset):** `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`
 
-### A. Validacion e Importancia
-*   **`Random_forest.py`**: Entrena iterativamente un modelo basado en arboles para cada particion, estableciendo una metrica de linea base (baseline) y validando el aporte individual de cada caracteristica a la clasificacion. *El script es completamente dinamico y genera automaticamente sus rutas de salida basadas en el directorio de ejecucion actual, por lo que no necesita configurar rutas.*
-
-
-### B. Analisis y Visualizacion Exploratoria
+### A. Analisis y Visualizacion Exploratoria
 *   **`dataset_viewer.py`**
     *   `SISMOS_DIR = # Dataset access path` (Ruta original de los datos. Ejemplo: `r\"C:\Users\Daniel\OneDrive\Escritorio\Dataset"`).
     *   `OUTPUT_DIR = # Figure saving path` (Carpeta destino para las imagenes generadas).
+
+
+### B. Validacion e Importancia
+*   **`Random_forest.py`**: Entrena iterativamente un modelo basado en arboles para cada particion, estableciendo una metrica de linea base (baseline) y validando el aporte individual de cada caracteristica a la clasificacion. *El script es completamente dinamico y genera automaticamente sus rutas de salida basadas en el directorio de ejecucion actual, por lo que no necesita configurar rutas.*
 
 ### C. Aumento de Datos (Clase TOR)
 *   **`data_augmentation.py`**: Script para generar datos aumentados del tipo de sismo TOR.
