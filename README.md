@@ -25,8 +25,8 @@ Asegúrate de tener instalada la versión 3.10.x abriendo una terminal y ejecuta
      
 3. **Activar el entorno virtual**
    Antes de instalar o correr cualquier código, debes activar el entorno:
-   * **Windows:** ```entorno_tesis\Scripts\activate```
-   * Linux / macOS: ```source entorno_tesis/bin/activate```
+   * **Windows:** ```nombre_entorno\Scripts\activate```
+   * Linux / macOS: ```source nombre_entorno/bin/activate```
    
 4. **Instalar las dependencias exactas:**
    Con el entorno activado, ejecuta el siguiente comando para instalar las versiones precisas requeridas:
