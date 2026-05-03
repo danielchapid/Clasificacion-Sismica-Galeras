@@ -19,14 +19,14 @@ Asegúrate de tener instalada la versión 3.10.x abriendo una terminal y ejecuta
 
 2. **Crear el entorno virtual**
    Abre una terminal en la raíz del proyecto y ejecuta el comando según tu sistema operativo:
-   * Windows (Opción estándar): ```python -m venv nombre_entorno ```
-   * Windows (Si usas el lanzador 'py'): ```py -3.10 -m venv nombre_entorno```
-   * Linux / macOS: ```python3.10 -m venv entorno_tesis```
+   * **Windows (Opción estándar):** ```python -m venv nombre_entorno ```
+   * **Windows (Si usas el lanzador 'py'):** ```py -3.10 -m venv nombre_entorno```
+   * **Linux / macOS:** ```python3.10 -m venv entorno_tesis```
      
 3. **Activar el entorno virtual**
    Antes de instalar o correr cualquier código, debes activar el entorno:
    * **Windows:** ```nombre_entorno\Scripts\activate```
-   * Linux / macOS: ```source nombre_entorno/bin/activate```
+   * **Linux / macOS:** ```source nombre_entorno/bin/activate```
    
 4. **Instalar las dependencias exactas:**
    Con el entorno activado, ejecuta el siguiente comando para instalar las versiones precisas requeridas:
