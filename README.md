@@ -10,13 +10,25 @@ Codigos para la clasificación de sismicidad (VT, LP, TRE, TOR) del volcán Gale
 
 Para ejecutar este proyecto de forma segura, utiliza un entorno virtual:
 
-1. **Crear y activar el entorno virtual, usando la versión de python 3.10 para este proyecto:**
+1. **Verificar la versión de Python**
+Asegúrate de tener instalada la versión 3.10.x abriendo una terminal y ejecutando:
    ```
-   python -3.10 -m venv nombre_del_entorno
+   python --version
    ```
-   *Activa el entorno virtual para trabajar y correr los codigos.*
+   *Nota para usuarios de Windows con múltiples versiones instaladas: pueden verificarla usando ```py -3.10 --version```*
+
+2. **Crear el entorno virtual**
+   Abre una terminal en la raíz del proyecto y ejecuta el comando según tu sistema operativo:
+   * Windows (Opción estándar): ```python -m venv nombre_entorno ```
+   * Windows (Si usas el lanzador 'py'): ```py -3.10 -m venv nombre_entorno```
+   * Linux / macOS: ```python3.10 -m venv entorno_tesis```
+     
+3. **Activar el entorno virtual**
+   Antes de instalar o correr cualquier código, debes activar el entorno:
+   * **Windows:** ```entorno_tesis\Scripts\activate```
+   * Linux / macOS: ```source entorno_tesis/bin/activate```
    
-3. **Instalar las dependencias exactas:**
+4. **Instalar las dependencias exactas:**
    Con el entorno activado, ejecuta el siguiente comando para instalar las versiones precisas requeridas:
    ```
    pip install -r requirements.txt
